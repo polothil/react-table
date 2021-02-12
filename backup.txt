@@ -1,0 +1,69 @@
+import React from 'react';
+import './App.css';
+
+export default function App() {
+  const rows = 8;
+  const columns = 10;
+
+  const array1 = [];
+
+  for (let i = 0; i < rows; i++) {
+    array1[i] = [];
+    for (let j = 0; j < columns; j++) {
+      array1[i][j] = null;
+    }
+  }
+
+  const students = [
+    ['Name', 'Subject', 'Marks'],
+    ['ABC', 'Arts', 80],
+    ['XYZ', 'Science', '70'],
+  ];
+  const array3 = Array.from(Array(rows), () => new Array(columns));
+
+  return (
+    <div>
+      <table style={{ width: '60%' }} className='center'>
+        <tbody>
+          {students.map((item, index) => {
+            return (
+              <tr key={index}>
+                {item.map((it) => {
+                  return <td key={it}>{it}</td>;
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+
+      <table style={{ width: '60%' }} className='center'>
+        <tbody>
+          {array1.map((rowItem, rowIndex) => {
+            return (
+              <tr key={rowIndex}>
+                {rowItem.map((colItem, colIndex) => {
+                  return <td key={colIndex}>{colItem}</td>;
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+
+      <table style={{ width: '60%' }} className='center'>
+        <tbody>
+          {array3.map((item, index) => {
+            return (
+              <tr key={index}>
+                <td key={item[0]}>{item[0]}</td>
+                <td key={item[1]}>{item[1]}</td>
+                <td key={item[2]}>{item[2]}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}

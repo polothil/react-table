@@ -4,8 +4,7 @@ import './App.css';
 const App = () => {
   const rows = 8;
   const columns = 10;
-  const rowSelect = 7;
-  const colSelect = 9;
+  const selection = 0;
 
   const array1 = [];
 
@@ -24,13 +23,11 @@ const App = () => {
             return (
               <tr key={rowIndex}>
                 {rowItem.map((colItem, colIndex) => {
-                  if (colIndex === colSelect && rowIndex === rowSelect) {
-                    return (
-                      <td style={{ backgroundColor: '#FF0000' }} key={colIndex}>
-                        {colItem}
-                      </td>
-                    );
-                  } else return <td key={colIndex}>{colItem}</td>;
+                  return (
+                    <td style={{ backgroundColor: '#FF0000' }} key={colIndex}>
+                      {colItem}
+                    </td>
+                  );
                 })}
               </tr>
             );
