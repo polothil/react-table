@@ -1,7 +1,18 @@
 import { FaHandPointLeft, FaHandPointRight, FaHandPointDown, FaHandPointUp } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
-const Buttons = (props) => {
+const Buttons = ({ rows, columns, rowSelect, colSelect, onClick }) => {
+  const moveDown = () => {
+    console.log('Click');
+    if (rowSelect >= rows) {
+      rowSelect = rows - 1;
+    } else {
+      rowSelect = rowSelect + 1;
+    }
+    console.log({ rowSelect });
+    onClick({ rowSelect, colSelect });
+  };
+
   return (
     <>
       <div className='container'>
@@ -18,7 +29,11 @@ const Buttons = (props) => {
         </button>
       </div>
       <div className='container'>
-        <button className='btn' style={{ backgroundColor: 'green', cursor: 'pointer' }}>
+        <button
+          className='btn'
+          style={{ backgroundColor: 'green', cursor: 'pointer' }}
+          onClick={moveDown}
+        >
           <FaHandPointDown />
         </button>
       </div>
