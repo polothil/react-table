@@ -20,7 +20,6 @@ const App = () => {
   };
 
   const selection = (values) => {
-    console.log(values);
     setRowSelect(values.rowSelect);
     setColSelect(values.colSelect);
   };
