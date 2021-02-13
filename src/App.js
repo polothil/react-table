@@ -1,42 +1,27 @@
-import React from 'react';
 import './App.css';
+import DynTable from './components/DynTable';
+import Buttons from './components/Buttons';
+import FormComp from './components/FormComp';
+import { useState } from 'react';
 
 const App = () => {
-  const rows = 8;
-  const columns = 10;
-  const rowSelect = 7;
-  const colSelect = 9;
+  const [rows, setRows] = useState(5);
+  const [columns, setColumns] = useState(5);
 
-  const array1 = [];
+  const [rowSelect, setRowSelect] = useState(0);
+  const [colSelect, setColSelect] = useState(0);
 
-  for (let i = 0; i < rows; i++) {
-    array1[i] = [];
-    for (let j = 0; j < columns; j++) {
-      array1[i][j] = null;
-    }
-  }
+  // Generate Table
+  const genTable = (values) => {
+    setRows(parseInt(values.rows));
+    setColumns(parseInt(values.columns));
+  };
 
   return (
     <div>
-      <table style={{ width: '60%' }} className='center'>
-        <tbody>
-          {array1.map((rowItem, rowIndex) => {
-            return (
-              <tr key={rowIndex}>
-                {rowItem.map((colItem, colIndex) => {
-                  if (colIndex === colSelect && rowIndex === rowSelect) {
-                    return (
-                      <td style={{ backgroundColor: '#FF0000' }} key={colIndex}>
-                        {colItem}
-                      </td>
-                    );
-                  } else return <td key={colIndex}>{colItem}</td>;
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <DynTable rows={rows} columns={columns} rowSelect={rowSelect} colSelect={colSelect} />
+      <Buttons />
+      <FormComp onAdd={genTable} />
     </div>
   );
 };

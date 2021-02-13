@@ -14,5 +14,55 @@ td {
 }
 
 td {
-  height: 10px;
+  height: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: rgb(7, 98, 216);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: inherit;
+}
+
+.btn-block {
+  display: block;
+  width: 70%;
+  margin: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+}
+
+.input-form {
+  margin-bottom: 10px;
+  width: 60%;
+  margin: auto;
+}
+
+.form-control {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.form-control input {
+  width: 40%;
+  height: 40px;
+  margin: 10px 30%;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
+.form-control label {
+  font-size: 20px;
 }
